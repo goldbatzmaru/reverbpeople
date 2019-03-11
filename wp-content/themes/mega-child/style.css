@@ -14,11 +14,18 @@ Updated: 2019-01-16 01:09:08
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 700 !important;
 }
+
+
+/* COLUMNS
+================================= */
+
+.footer-column {
+	padding-bottom: 50px;
+}
+
+
 /* HOME
 ================================= */
-.home_service {
-
-}
 .home_service_img {
 	display: inline-block;
 	text-align: center;
@@ -467,7 +474,8 @@ background-color: white !important;
 /* WIDGETS
 ================================= */
 
-FOOTER 
+/* FOOTER  */
+
 .footer-widget {
 	padding-bottom: 20px !important;
 }
@@ -482,7 +490,7 @@ FOOTER
 	padding: 0 40px 40px;
 }
 .footer #footer_contact {
-	font-size: 22px !imdportant;
+	font-size: 22px !important;
 }
 #custom_html-4, #a2a_follow_widget-2 {
 	text-align: center;
@@ -498,10 +506,34 @@ FOOTER
 	color: #00b2bf !important;
 }
 
+/* ACF 
+================================================== */
+
+/* Footer */
+
+#footer-logos {
+	background-color: #dfdfdf;
+	width: 100%;
+}
+
+#footer-logos .logos {
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 25px 0;
+}
+
+#footer-logos .logos li img {
+	max-width: 150px;
+	max-height: 150px;
+	opacity: .5;
+}
 
 
 /* GRID FROM CABANA */
-
 /* #Base 960 Grid
 ================================================== */
 

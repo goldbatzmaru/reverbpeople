@@ -12,16 +12,15 @@ function wope_post_metabox(){
 	global $post;
 	$post_media_type 	= get_post_meta( $post->ID, 'post_media_type', true );
     $embed_code 		= get_post_meta( $post->ID, 'embed_code', true );
-	
 	$image_array 		= get_post_meta( $post->ID, 'image_array', false );
+
 	if(array_key_exists(0,$image_array)){
 		$image_array 		= $image_array[0];
 	}else{
 		$image_array 		= '';
 	}
-	
 	//add more upload field
-	$image_array[] = '';
+	// $image_array[] = '';
 
 	if(!$post_media_type){
 		$post_media_type = 'image';
