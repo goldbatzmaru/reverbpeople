@@ -1,7 +1,6 @@
 <?php
 if ( ! defined( 'LEADIN_PLUGIN_VERSION' ) ) {
-  header( 'HTTP/1.0 403 Forbidden' );
-  wp_die();
+  wp_die( '', '', 403 );
 }
 
 if ( is_admin() ) {
@@ -13,8 +12,7 @@ function leadin_oauth_refresh_ajax() {
 
   if ( empty( $existingPortalId ) ) {
     error_log( 'Refresh error' );
-    header( 'HTTP/1.0 400 Bad Request' );
-    wp_die( '{"error": "No leadin_portalId found, cannot refresh."}' );
+    wp_die( '{"error": "No leadin_portalId found, cannot refresh."}', '', 400 );
   }
 
   $data = json_decode( file_get_contents( 'php://input' ), true );
@@ -24,8 +22,7 @@ function leadin_oauth_refresh_ajax() {
 
   if ( empty( $portalId ) || empty( $accessToken ) ) {
     error_log( 'Refresh error' );
-    header( 'HTTP/1.0 400 Bad Request' );
-    wp_die( '{"error": "Refresh missing required fields"}' );
+    wp_die( '{"error": "Refresh missing required fields"}', '', 400 );
   }
 
   update_option( 'leadin_accessToken', $accessToken );

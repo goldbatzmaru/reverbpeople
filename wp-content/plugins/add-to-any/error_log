@@ -1,4 +1,0 @@
-[13-Dec-2018 19:00:19 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function untrailingslashit() in /home2/uniqufn3/public_html/wp-content/plugins/add-to-any/add-to-any.php:18
-Stack trace:
-#0 {main}
-  thrown in /home2/uniqufn3/public_html/wp-content/plugins/add-to-any/add-to-any.php on line 18
