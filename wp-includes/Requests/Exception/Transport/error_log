@@ -1,0 +1,1 @@
+[23-Jul-2018 21:21:54 America/Chicago] PHP Fatal error:  Class 'Requests_Exception_Transport' not found in /home2/uniqufn3/public_html/wp-includes/Requests/Exception/Transport/cURL.php on line 3

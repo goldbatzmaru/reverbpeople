@@ -1,0 +1,2 @@
+[23-Jul-2018 21:21:41 America/Chicago] PHP Fatal error:  Interface 'Requests_Transport' not found in /home2/uniqufn3/public_html/wp-includes/Requests/Transport/fsockopen.php on line 15
+[23-Jul-2018 21:21:55 America/Chicago] PHP Fatal error:  Interface 'Requests_Transport' not found in /home2/uniqufn3/public_html/wp-includes/Requests/Transport/cURL.php on line 15

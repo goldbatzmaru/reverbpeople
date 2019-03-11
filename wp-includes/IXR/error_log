@@ -1,0 +1,2 @@
+[23-Jul-2018 20:51:09 America/Chicago] PHP Fatal error:  Class 'IXR_Client' not found in /home2/uniqufn3/public_html/wp-includes/IXR/class-IXR-clientmulticall.php on line 8
+[23-Jul-2018 20:51:54 America/Chicago] PHP Fatal error:  Class 'IXR_Server' not found in /home2/uniqufn3/public_html/wp-includes/IXR/class-IXR-introspectionserver.php on line 9

@@ -1,0 +1,892 @@
+/*
+Theme Name: UniquelyHR
+Author: Austin Creative Inc. 
+Author URI: http://austincreativeinc.com/
+Description: A Multipurpose HTML5 WordPress Theme based on Cabana with a customized work area for client logos
+Template:     cabana
+Version: 1.0
+License: GNU General Public License
+License URI: https://www.gnu.org/licenses/gpl.html
+Tags: light, responsive-layout, theme-options, translation-ready, photoblogging
+*/
+
+body, p, div, ul, ol, li, a {
+	font-size: 18px;
+	line-height: 26px;
+	margin-top: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 700;
+	text-transform: none;
+}
+
+a {color: #00b2bf;}
+
+.content {
+	background-color: #ffffff;
+	padding: 40px 0 60px;
+}
+
+blockquote.large {
+	padding: 0px 20px;
+	margin: 30px 0;
+}
+blockquote.large p {
+	line-height: 30px;
+	margin-bottom:10px;
+	color: #00b2bf;
+}
+
+.uhr {
+	color: #00b2bf; 
+	font-weight:bold;
+}
+
+/*Header*/
+.sf-menu a {font-size: 14px;}
+.sf-menu ul li {padding: 0 0 0 15px!important;}
+.agency-alt .header-top {
+	padding-bottom: 0;
+}
+.header-top-inner .twelve.columns.omega, .header-top .twelve.columns.omega {
+	text-align:right;
+	padding-top: 14px;
+}
+.agency-alt #header-global[role="banner"] .social-icons{margin-top: 0;}
+.main-navigation {
+	margin-top: 7px;
+	margin-bottom: 0px;
+}
+
+.main-navigation ul > li#menu-item-313 a {padding-right: 0;}
+.main-navigation ul > li#menu-item-313 {margin-right:0;}
+
+.header-cta {
+	background-color: #00b2bf;
+	border-radius: 4px 4px;
+	padding: 5px;
+	width: 180px;
+	text-align:center;
+	float:right;
+	margin: 5px 40px 0 0;
+}
+.header-cta a {color: #222222;}
+.header-cta:hover a {color: #ffffff;}
+.social-icons {float:right;}
+
+/*Footer*/
+.company-title {margin: 10px 0;}
+
+/*Home
+================================= */
+.uber-statement {
+	margin-top:340px;
+}
+.container .uber-statement h1, .agency-alt .uber-statement h1 {
+	margin-top: -0.5em;
+}
+.uber-statement h1, .agency-alt .uber-statement h1 {
+	text-transform: none;
+	color: #fff !important;
+	background-color: rgba(22, 22, 22, 0.6);
+	/*background-color: rgba(23, 45, 67, 0.8);*/
+	/*background-color: rgba(180, 180, 180, 0.4);*/
+	font-size: 80px;
+	line-height:110%;
+}
+
+#homepage-about .icon-holder.about {display:none;}
+.agency-alt #homepage-about .homepage-section-header a.read-more-btn { 
+margin-top: 20px;
+}
+#homepage-about, #homepage-services, #homepage-news {padding:30px 0;}
+#homepage-services .icon-holder.services {display:none;}
+#homepage-services {background-color: #00b2bf;}
+#homepage-services p, #homepage-services .details p {color: #ffffff;}
+
+
+#homepage-portfolio {
+	padding: 20px 0 40px 0;
+}
+.icon-holder.portfolio {
+	display: none;
+}
+#homepage-portfolio h2 {
+	margin-bottom: 30px;
+}
+#homepage-portfolio .one_half.last img {
+	width: 150px;
+	height: 150px;
+	border-radius: 100%;
+	border: 4px solid #999;
+}
+.service-item .details h2  {
+	line-height: .8;
+}
+.service-item .details h2 a {
+	line-height: inherit !important;
+}
+.service-item .details p {
+	line-height: 1.1;	
+}
+#homepage-portfolio {
+background: #FFF none repeat scroll 0% 0%;
+}
+#home_video p {
+	margin-top: 20px;
+	margin-bottom: 0px;
+	font-size: 17px;
+	line-height: 1.3;
+}
+#home_video img {
+	border-radius: 5px;
+	width: 80%;
+}
+#home_testomonial p {
+	margin-top: 20px;
+	margin-bottom: 0px;
+	font-size: 17px;
+	line-height: 1.3;
+}
+#home_testomonial p.home_testimonial_byline {
+	font-size: 14px;
+	margin-top: 8px;
+}
+#homepage-team {
+background: #FFF none repeat scroll 0% 0%;
+}
+
+
+/*About
+================================= */
+.thought-box {
+	background: url('http://uniquelyhr.com/wp-content/uploads/2015/12/uniquelyHR-Seattle2.jpg') no-repeat center top;
+	padding: 70px 0;
+	text-align:center;
+	margin-bottom: 20px;
+
+}
+.thought-box p {
+	background-color: rgba(200, 200, 200, 0.4);
+	font-size: 36px;
+	line-height: 50px;
+	font-weight:bold;
+	color: #000000;
+	margin: 0 25px;
+}
+.thought-box a {
+	font-size: 36px;
+	line-height: 50px;
+	font-weight:bold;
+}
+
+
+/*About > TEAM
+================================= */
+.team-section {
+	clear: both;
+	margin-top: 30px;
+}
+.team-section h3 {
+	text-align: center;
+	font-size: 30px;
+	color: #00b2bf;
+	border-bottom: 1px solid #000;
+}
+.team-member img {
+	border-radius: 8px;
+}
+.team-member h2 {
+	font-size: 22px;
+	line-height: 1.2;
+	margin-top: 3px;
+}
+.team-member p:not(.member-role){
+	margin-bottom: 0;
+}
+.inner .team-member {
+	margin-bottom: 30px;
+}
+p.member-role {
+	line-height: 1.1;
+	height: 40px;
+}
+.team-member .social.icon {
+	float: right;
+	margin-top: -8px;
+}
+.team-member .social.icon a {
+	line-height: 0;
+}
+.team-jobs {
+	clear: both;
+}
+.team-jobs h3 {
+	margin-top: 30px;
+	text-align: center;
+	font-size: 24px;
+	color: #00b2bf;
+	border-bottom: 1px solid #000;
+}
+
+/*Services
+================================= */
+.thought-box-services {
+	background: url('http://uniquelyhr.com/wp-content/uploads/2016/10/jim_weber-e1476135489301.jpg') no-repeat center center;
+	padding: 120px 0;
+	text-align:center;
+	margin-bottom: 20px;
+}
+.thought-box-services p {
+	background-color: rgba(200, 200, 200, 0.6);
+	font-size: 36px;
+	line-height: 50px;
+	font-weight:bold;
+	color: #000000;
+	margin: 0 25px;
+}
+.thought-box-services a {
+	font-size: 36px;
+	line-height: 50px;
+	font-weight:bold;
+}
+.service-title {
+	text-align:center;
+	color: #00b2bf; 
+}
+
+.contact-button {text-align:center;}
+
+.service-box {
+	width: 30%;
+	margin: 0 1% 15px;
+	border: 1px solid #333333;
+	float: left;
+	border-radius: 5px;
+}
+.service-box h3{
+	background-color: #00b2bf;
+	color: #333333;
+	text-align:center;
+	padding: 10px 0 0 0;
+	height: 62px;
+	border-radius: 5px 5px 0 0;
+}
+.service-box p{
+	padding: 0 10px;
+}
+.package-row{
+	background-color: #ffffff;
+	padding: 10px 10px;
+	margin-bottom: 15px;
+	border: 2px solid #00b2bf;
+}
+.package-row .one_third {margin-bottom:0;}
+.package h4 {
+	text-align:center;
+	font-size: 26px;
+	line-height: 36px;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+.package.on-site h4{
+	background-color:#00b2bf;
+}
+.package.on-site {
+	background-color:#888888;
+	color: #ffffff;
+}
+.package.on-site p, .package.on-site ul li {
+	margin-right: 5px;
+	margin-left: 5px;
+}
+.package.on-site .uhr {color: #222222;}
+.package.on-site hr {border-color: #00b2bf;}
+.package .price {
+	text-align:center;
+}
+.package .price .uhr {font-size: 20px;}
+.package ul {
+	list-style-type:none;
+}
+.package ul li {margin-bottom: 10px;}
+
+/*Clients*/
+.logo-quote img {margin: 20px 30px 15px 0;}
+
+/*Valued Resources*/
+.value-res hr{margin: 15px 0 25px;}
+.value-res h3 {
+	margin-bottom: 5px;
+	padding-bottom: 0;
+}
+.value-res p {margin-top: 0;}
+
+
+
+/* Press page business logos
+================================= */
+#pressarticles img {
+	margin-bottom: -20px;
+}
+#pressarticles a {
+	font-size: 16px;
+	line-height: 1;
+}
+#pressarticles p {
+	margin-bottom: 0;
+	text-align: center;
+}
+
+
+/* CLIENTS
+================================= */
+#clients_testimonials .row {
+	border-bottom: 1px solid #00b2bf;
+	padding: 10px 0px;
+	margin: 10px 0px;
+}
+#clients_testimonials img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	border: 3px solid #00b2bf;
+}
+#clients_testimonials span {
+	font-weight: bold;
+}
+#clients_companies img {
+	width: 200px;
+	height: 200px;
+	margin: 0 20px;
+}
+
+/*Contact
+================================= */
+
+.gform_wrapper small {
+	font-size: .666em;
+	line-height: 1.1;
+	display: inline-block;
+}
+
+
+
+
+@media screen and (max-width:767px){
+	.logo-quote img.alignleft {float:none;}
+}
+@media (max-width:767px) and (min-width:480px){
+	.press-row a {
+		width: 200px;
+		height:100px;
+		line-height:100px;
+	}
+	.press-row .press-image {max-width: 200px;}
+}
+@media (max-width:479px){
+	.press-row a {
+		width: 300px;
+		height:auto;
+		line-height:initial;
+		float:none;
+	}
+	.press-row a:hover {
+		background-color: #F4F4F4;
+	}
+	.press-row .press-image {
+		max-width: 300px;
+	}
+}
+
+.page .content.inner p {
+	margin-top: 0;
+}
+.page .content.inner h4 {
+	padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/* SERVICES > SERVICE BOXES
+================================= */
+.serviceboxes {
+	margin: 40px auto;
+}
+.serviceboxes h1 {
+	font-size: 33px;
+	text-align: center;
+	color: #00b2bf;
+	padding-bottom: 10px;
+}
+.servicebox {
+	position: relative;
+	padding: 20px 15px 50px;
+	border: 4px solid #000;
+	text-align: center;
+	background: #00b2bf;
+	color: #fff;
+	border-radius: 50px;
+}
+.servicebox img {
+}
+.servicebox#servicebox1 {
+	
+}
+.servicebox#servicebox2 {
+
+}
+.servicebox#servicebox3 {
+
+}
+p.servdesc {
+	margin-bottom: 30px;
+}
+.servicebox a.read-more-btn {
+	display: block;
+	width: inherit;
+	color: #fff;
+	position: absolute;
+	bottom: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	left: 0;
+	right: 0;
+}
+.servicebox h4 {
+	
+}
+
+
+/* SERVICES > 3 STEPS BOXES
+================================= */
+.steps {
+	max-width: 700px;
+	margin: 0 auto;
+}
+.steps h3 {
+	margin-bottom: 50px;
+	text-align: center;
+	font-size: 30px;
+}
+.step {
+	position: relative;
+	height: 180px;
+	padding: 60px 18px 100px;
+	border: 4px solid #000;
+	text-align: center;
+	color: #fff;
+}
+.step img {
+	position: absolute;
+	top: -16.66%;
+	width: 50%;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+}
+.step#step1 {
+	border-radius: 50px 0 0 0;
+	background: #00b2bf url('i/step_i1.svg') bottom center no-repeat;
+	background-size: 80%;
+}
+.step#step2 {
+	border-radius: 0 0 0 0;
+	background: #00b2bf url('i/step_i2.svg') bottom center no-repeat;
+	background-size: 80%;
+}
+.step#step3 {
+	border-radius: 0 50px 0 0;
+	background: #00b2bf url('i/step_i3.svg') bottom center no-repeat;
+	background-size: 80%;
+}
+.step a {
+	color: #fff;
+}
+.step p {
+	margin-bottom: 0;
+}
+.step h4 {
+	
+}
+.service a.read-more-btn {
+	background: auto;
+}
+
+/* SERVICES > TESTIMONIAL
+================================= */
+h5.testimonial-header {
+	color: #00b2bf;
+	text-align: center;
+	font-size: 22px;
+}
+
+/* EVENTS
+================================= */
+.page-id-1284 .content.inner h2 {
+	color: #fff;
+	text-align: center;
+	background: #00b2bf;
+	padding: 15px;
+	border-radius: 5px;
+}
+.page-id-1284 .content.inner h3 {
+	color: #666;
+	text-align: center;
+	padding: 15px 0 5px;
+	border-bottom: 1px solid #666;
+}
+.page-id-1284 .content.inner .one_half.first p {
+	font-size: .9em;
+	line-height: 1.2;
+}
+.page-id-1284 .content.inner .one_half.last p {
+	font-size: 14px;
+	line-height: 1.2;
+	color: #333;
+}
+.page-id-1284 .content.inner img {
+	border-radius: 5px;
+}
+
+/* BLOG
+================================= */
+.post-excerpt h2, .post-single h2 {
+	font-size: 29px;
+	line-height: 1.1;
+}
+
+article ul, article ol {
+	list-style-position: outside;
+	margin: 30px 40px;
+}
+article li {
+	margin-bottom: 7px;
+}
+
+.meta-details p {
+	line-height: 1.1;
+}
+.author-info {
+	margin-left: 220px;
+}
+.author-bio {
+	padding: 0 0 0 0;
+}
+.author-bio .author-social-icons {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	float: right;
+	margin-right: 30px;
+	color: #6D6E71;
+}
+p.article-author {
+	margin-bottom: 15px;
+}
+p.author-description {
+	font-size: .8em;
+	display: block;
+	margin-top: 0;
+}
+.pager li {
+	display: inline-block;
+	max-width: 50%;
+}
+.pager li.previous {
+	float: left;
+}
+.pager li.next {
+	float: right;
+}
+.widget_recent_entries ul li a {
+	padding-left: 24px;
+	display: block;
+	line-height: 1.1;
+}
+.sidebar h4.widget-title {
+	padding-bottom: 3px;
+	border-bottom: 1px solid #3f3f3f;
+	margin-bottom: 0px;
+}
+
+/* HTML snippets */
+.uhr_sec_separator {
+	clear: both;
+}
+
+/* CTA boxes
+================================= */
+.cta-box {
+	display: block;
+	margin: 40px auto 0 auto;
+	max-width: 666px;
+	padding: 20px;
+	background-color:#00b2bf;
+	border: 4px solid #000;
+	border-radius: 50px;
+	text-align: center;
+	color: #fff;
+	position: relative;
+}
+.cta-box img {
+	width: 80px;
+	height: auto;
+	position: absolute;
+	left: 30px;
+	top: 30px;
+	
+}
+.cta-box h3 {
+	padding-bottom: 0;
+	margin-bottom: 6px;
+}
+.cta-box p, .cta-box ul li {
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 1.4;
+	padding-left: 110px;
+	text-align: left;
+	width: auto;
+}
+.cta-box a.read-more-btn {
+	margin-top: 0;
+	display: inline;
+}
+#cta-contact {
+}
+#cta-resources {
+}
+
+/* PAGE RESOURCES
+================================= */
+#resource_list {
+	border-bottom: 1px solid #7b7b7b;
+	margin-bottom: 30px;
+}
+#resource_list h3 {
+	margin-top: 10px;
+	border-top: 1px solid #7b7b7b;
+	padding-top: 20px;
+	margin-bottom: 0px;
+}
+#resource_list a {
+	font-size: 1.1em;
+	font-weight: bold;
+	margin-bottom: 10px;
+	
+}
+#resource_list a:before {
+	display: inline-block;
+	content: url('/wp-content/themes/uniquelyhr/i/resource_blue.svg');
+	width: 30px;
+	height: auto;
+	padding-right: 6px;
+	vertical-align: -30%;
+}
+#resource_list a.gform_anchor:before {
+	display: none;
+	content: '';
+}
+#resource_list .gform_description {
+	color: #00b2bf;
+}
+
+.gform_button.button {
+	position: relative;
+	display: inline-block;
+	background: #333;
+	border-radius: 30px;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 400;
+	letter-spacing: 1px;
+	text-decoration: none;
+	text-transform: uppercase;
+	margin-top: 15px;
+	padding: 6px 20px;
+	text-align: center;
+	text-transform: uppercase;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+.gform_button.button:hover {
+	background: #00b2bf;
+	color: #fff;
+}
+.gform_wrapper input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"])
+
+
+
+/* FOOTER
+================================= */
+#footer_left h2, #footer_right h2 {
+	color: #999;
+}
+#footer_left ul li {
+	list-style-type: none;
+	font-size: 14px;
+	line-height: 1.2;
+}
+#footer_left .widget_recent_entries ul li:before {
+	color: #00b2bf;
+	padding-right: 0px;
+}
+#footer_left ul li a {
+	font-size: 16px;
+	line-height: 1.1;
+	padding-left: 20px;
+	display: block;
+}
+#footer-global[role="contentinfo"] .company-title {
+	text-transform: none;
+}
+#footer-global[role="contentinfo"] .social-links-container {
+	margin-top: 0px;
+}
+#footer_right ul li {
+	list-style-type: none;
+}
+span.gform_description {
+	font-size: 14px;
+	line-height: 1.3;
+}
+.gform_wrapper .gfield_required {
+	color: #00b2bf !important;
+}
+#footer_right form {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.gform_wrapper ul li.gfield.field_sublabel_above.field_description_below+li.gfield {
+	margin-top: 0px;
+	line-height: 1.1;
+}
+#footer_right label {
+	font-size: 12px;
+	font-weight: normal;
+}
+#footer_right input[type="text"] {
+	height: 30px;
+	border-radius: 5px;
+}
+.gform_wrapper .gform_footer {
+	padding-top: 0px !important;
+}
+#footer_right input[type="submit"] {
+	color: #fff;
+	border-color: transparent;
+	background: #999;
+	border-radius: 20px;
+	font-size: 12px !important;
+}
+
+@media screen and (max-width:779px){
+	.header-top-inner {
+		padding-bottom: 0;
+	}
+	.agency-alt .header-top .logo, .header-top-inner .logo {
+		text-align: center;
+	}
+	.header-cta {
+		float: left;
+	}
+	.main-navigation {
+		margin-left: 0;
+	}
+	.content { padding: 140px 0 60px; }
+	.uber-statement h1, .agency-alt .uber-statement h1 {
+		font-size: 40px;
+		text-align: center;
+	}
+	.home a.read-more-btn {
+		display: block;
+		max-width: 50%;
+		margin: 0 auto;
+	}
+	.service-item {
+		text-align: center;
+		
+	}
+	#footer-global {
+		text-align: center;
+	}
+	#footer_left ul li {
+		width: 80%;
+		margin-left: 10%;
+	}
+	.agency-alt #footer-global[role="contentinfo"] {
+    text-align: center;
+	}
+	#footer-global h2, #footer-global p, #footer-global .gform_description {
+		text-align: center !important;
+	}
+	#footer-global .gform_wrapper ul.gform_fields:not(.top_label) .gfield_label {
+		float: none;
+		width: auto;
+		padding-right: none;
+		margin-bottom: 6px;
+	}
+	#footer-global li#field_3_4.gfield.gfield_contains_required.field_sublabel_above.field_description_below.gfield_visibility_visible {
+		text-align: center;
+	}
+	#footer-global .gform_wrapper .gform_footer:not(.top_label) {
+		padding: 16px 0 10px;
+		margin-left: 0;
+		text-align: center;
+		width: auto !important;
+	}
+
+	/* services */
+	.servicebox p {
+		font-size: 28px;
+		line-height: 1.1;
+	}
+	.step#step1 {
+		border-radius: 50px 0 50px 0;
+	}
+	.step#step2 {
+		border-radius: 50px 0 50px 0;
+	}
+	.step#step3 {
+		border-radius: 50px 0 50px 0;
+	}
+	.step#step1, .step#step2, .step#step3 {
+		background-size: 50%;
+	}
+	.step img {
+		top: -12.5%;
+		width: 25%;
+	}
+	.step h4 {
+		font-size: 28px;
+		line-height: 1.1;
+	}
+	
+	/* client testimonials */
+	#clients_testimonials .alignleft {
+		margin-bottom: 20px;
+	}
+	/* client logos */
+	#clients_companies img {
+		width: 160px;
+		height: 160px;
+		
+	}
+}
+
+
+/* JOBS WIDGET */
+
+.bb-public-jobs-list {
+	margin: 10px !important;
+}

@@ -1,0 +1,1 @@
+[25-Aug-2016 12:15:05 America/Denver] PHP Fatal error:  Class 'WP_Filesystem_Base' not found in /home2/uniqufn3/public_html/wp-admin/includes/class-wp-filesystem-ftpext.php on line 17
