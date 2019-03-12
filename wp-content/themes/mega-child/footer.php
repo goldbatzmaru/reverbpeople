@@ -38,10 +38,12 @@ $wope_total_actived_sidebar = count($wope_actived_sidebar);
 			</div> 
 			<?php }?>
 			  <?php if(($acf) && (have_rows('logos', 'option'))): ?>
-				<?php $count = count(get_field('logos', 'option')); ?> 
+				<?php 
+				  $count = count(get_field('logos', 'option')); 
+				?> 
 			    <div id="footer-logos" class="wrap-column">
 				  <ul class="logos">
-			        <?php while ( have_rows('logos', 'option') ) : the_row(); ?>
+					<?php while ( have_rows('logos', 'option') ) : the_row(); ?>
 				      <li>
 					    <?php $logo = get_sub_field('logo'); ?>
 					    <img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" />
