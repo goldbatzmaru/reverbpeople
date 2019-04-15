@@ -4,7 +4,7 @@ if ( ! defined( 'LEADIN_PLUGIN_VERSION' ) ) {
 }
 
 if ( is_admin() ) {
-  add_action( 'wp_ajax_leadin_disconnect_ajax', 'leadin_disconnect_ajax' ); // Call when user in slumber mode would like to disconnect their account
+  add_action( 'wp_ajax_leadin_disconnect_ajax', 'leadin_disconnect_ajax' );
 }
 
 function leadin_disconnect_ajax() {

@@ -89,6 +89,11 @@ h1, h2, h3, h4, h5, h6 {
 	align-items: normal;
 	flex-wrap: wrap;
 }
+
+.page-entry-content .flex-container{
+	padding-bottom: 0;
+}
+
 .flex-container.column {
 	flex-direction: column;
 	margin-left: 5px;
@@ -153,6 +158,42 @@ ul.flex-container.darkgray li {
 	width: 33%;
 }
 
+@media (max-width: 760px){
+	.page-entry-content .flex-container.third {
+		flex-direction: column;
+	}
+	.page-entry-content .flex-container.third > * {
+		width: 100%;
+	}
+	
+	.page-entry-content .flex-container.third > * {
+		width: 100%;
+	}
+	
+	.page-entry-content .flex-container.third > .content-block {
+		 padding: 0 10px 0 10px;
+		 margin: 0 auto;
+	}
+	
+	.page-entry-content .flex-container.third > .content-block p {
+		width: 95%;
+	}
+}
+
+@media (max-width: 450px){
+	.page-entry-content .flex-container.half {
+		flex-direction: column;
+	}
+	
+	.page-entry-content .flex-container.half > * {
+		width: 100%;
+		margin-bottom: 15px;
+	}
+	
+	.page-entry-content .flex-container.half p {
+		width: 95%;
+	}
+}
 
 /* HEADER
 ================================= */
@@ -193,7 +234,7 @@ ul.flex-container.darkgray li {
 	width: 80%;
 	margin: 0 auto;
 	border-top: 1px dotted #00b2bf;
-	padding-botto: 30px;
+	padding-bottom: 30px;
 	border-bottom: 1px dotted #00b2bf;
 }
 .home_resource {
@@ -294,7 +335,7 @@ ul.gform_fields_3 li.gfield {
 	border: 5px solid #00a79d;
 } 
 
-.content-block.darkgray-border {
+.content-block.darkgray-border { 
 	border: 5px solid #383838;
 }
 
@@ -652,6 +693,21 @@ h5.testimonial-header {
 }
 #cta-resources {
 }
+
+#cta_contacts .button-wrapper {
+   display: inline-block;
+    width: 100%;
+    margin: 48px auto 0;
+    text-align: center;
+}
+
+#cta_resources .button-wrapper {
+    display: inline-block;
+    width: 100%;
+    margin: 30px auto 0;
+    text-align: center;
+}
+
 
 /* PAGE RESOURCES
 ================================= */
@@ -1068,7 +1124,7 @@ background-color: white !important;
 ================================================== */
 
 /* Self Clearing Goodness */
-.container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+.container:after { content: "020"; display: block; height: 0; clear: both; visibility: hidden; }
 
 /* Use clearfix class on parent to clear nested columns,
 or wrap each row of columns in a <div class="row"> */
@@ -1076,7 +1132,7 @@ or wrap each row of columns in a <div class="row"> */
 .clearfix:after,
 .row:before,
 .row:after {
-  content: '\0020';
+  content: '020';
   display: block;
   overflow: hidden;
   visibility: hidden;

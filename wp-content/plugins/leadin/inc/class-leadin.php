@@ -15,6 +15,9 @@ class WPLeadIn {
       add_action( 'admin_bar_menu', array( $this, 'add_leadin_link_to_admin_bar' ), 999 );
     }
 
+    add_action( 'wp_enqueue_scripts', array($this, 'add_common_frontend_scripts' ) );
+    add_action( 'admin_enqueue_scripts', array($this, 'add_common_frontend_scripts' ) );
+
     if ( is_admin() ) {
       if ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) {
         $li_wp_admin = new WPLeadInAdmin();
@@ -42,7 +45,6 @@ class WPLeadIn {
 
     $embedDomain = constant( 'LEADIN_SCRIPT_LOADER_DOMAIN' );
     $portalId    = get_option( 'leadin_portalId' );
-    $slumberMode = get_option( 'leadin_slumber_mode' );
 
     if ( empty( $portalId ) ) {
       echo '<!-- HubSpot embed JS disabled as a portalId has not yet been configured -->';
@@ -76,6 +78,13 @@ class WPLeadIn {
     wp_localize_script( $embedId, 'leadin_wordpress', $leadin_wordpress_info );
     wp_enqueue_script( $embedId );
     $this->add_page_analytics();
+  }
+
+  function add_common_frontend_scripts() {
+    if ( is_user_logged_in() ) {
+      wp_register_style( 'leadin-css', LEADIN_PATH.'/assets/leadin.css' );
+      wp_enqueue_style( 'leadin-css' );
+    }
   }
 
   /* HubSpot page analytics */
