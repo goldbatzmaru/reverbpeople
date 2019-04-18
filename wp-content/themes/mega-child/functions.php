@@ -78,3 +78,5 @@ if( function_exists('acf_add_options_page') ) {
 		'redirect'		=> false
 	));
 }
+
+add_filter( 'gform_confirmation_anchor', '__return_false' );
