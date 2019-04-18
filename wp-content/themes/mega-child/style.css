@@ -89,11 +89,6 @@ h1, h2, h3, h4, h5, h6 {
 	align-items: normal;
 	flex-wrap: wrap;
 }
-
-.page-entry-content .flex-container{
-	padding-bottom: 0;
-}
-
 .flex-container.column {
 	flex-direction: column;
 	margin-left: 5px;
@@ -158,42 +153,6 @@ ul.flex-container.darkgray li {
 	width: 33%;
 }
 
-@media (max-width: 760px){
-	.page-entry-content .flex-container.third {
-		flex-direction: column;
-	}
-	.page-entry-content .flex-container.third > * {
-		width: 100%;
-	}
-	
-	.page-entry-content .flex-container.third > * {
-		width: 100%;
-	}
-	
-	.page-entry-content .flex-container.third > .content-block {
-		 padding: 0 10px 0 10px;
-		 margin: 0 auto;
-	}
-	
-	.page-entry-content .flex-container.third > .content-block p {
-		width: 95%;
-	}
-}
-
-@media (max-width: 450px){
-	.page-entry-content .flex-container.half {
-		flex-direction: column;
-	}
-	
-	.page-entry-content .flex-container.half > * {
-		width: 100%;
-		margin-bottom: 15px;
-	}
-	
-	.page-entry-content .flex-container.half p {
-		width: 95%;
-	}
-}
 
 /* HEADER
 ================================= */
@@ -234,7 +193,7 @@ ul.flex-container.darkgray li {
 	width: 80%;
 	margin: 0 auto;
 	border-top: 1px dotted #00b2bf;
-	padding-bottom: 30px;
+	padding-botto: 30px;
 	border-bottom: 1px dotted #00b2bf;
 }
 .home_resource {
@@ -335,7 +294,7 @@ ul.gform_fields_3 li.gfield {
 	border: 5px solid #00a79d;
 } 
 
-.content-block.darkgray-border { 
+.content-block.darkgray-border {
 	border: 5px solid #383838;
 }
 
@@ -425,8 +384,7 @@ p.member-role {
 
 /* SERVICES
 ================================= */
-#cta_contacts {
-}
+
 .cta_contact {
 	width: 50%;
 	display: inline-block;
@@ -456,8 +414,6 @@ p.member-role {
 	margin: 30px 0;
 }
 
-#cta_resources {
-}
 .cta_resource {
 	width: 25%;
 	display: inline-block;
@@ -492,6 +448,31 @@ p.member-role {
 	border: 2px solid #00b2bf !important;
 	color: #00b2bf;
 	margin: 30px 0;
+}
+
+#cta_contacts > .contacts.wrapper,
+#cta_resources > .resources.wrapper {
+	display: block;
+  min-height: 100px;
+  margin-top: 15px;
+}
+
+@media (max-width: 420px){
+	#cta_resources > .resources.wrapper > .cta_resource {
+		width: 45%;
+	}
+
+	#cta_resources > .resources.wrapper > .cta_resource:nth-child(-n+2){
+		margin-bottom: 25px;
+	}
+
+}
+
+
+#cta_contacts .button-wrapper, #cta_resources .button-wrapper {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
 }
 
 .cta-button {
@@ -637,11 +618,14 @@ h5.testimonial-header {
 	font-weight: bold;
 }
 #clients_companies {
-	padding-left: 80px;
+	padding-left: 10%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
-#clients_companies img {
+.page-entry-content #clients_companies img {
 	width: 200px;
-	height: 200px;
+	height: 200px !important;
 	margin: 0 20px;
 }
 
@@ -693,21 +677,6 @@ h5.testimonial-header {
 }
 #cta-resources {
 }
-
-#cta_contacts .button-wrapper {
-   display: inline-block;
-    width: 100%;
-    margin: 48px auto 0;
-    text-align: center;
-}
-
-#cta_resources .button-wrapper {
-    display: inline-block;
-    width: 100%;
-    margin: 30px auto 0;
-    text-align: center;
-}
-
 
 /* PAGE RESOURCES
 ================================= */
@@ -1120,11 +1089,11 @@ background-color: white !important;
 }
 
 
-/* #Clearing
+/* Clearing
 ================================================== */
 
 /* Self Clearing Goodness */
-.container:after { content: "020"; display: block; height: 0; clear: both; visibility: hidden; }
+.container:after { content: " 020"; display: block; height: 0; clear: both; visibility: hidden; }
 
 /* Use clearfix class on parent to clear nested columns,
 or wrap each row of columns in a <div class="row"> */
@@ -1132,7 +1101,7 @@ or wrap each row of columns in a <div class="row"> */
 .clearfix:after,
 .row:before,
 .row:after {
-  content: '020';
+  content: ' 020';
   display: block;
   overflow: hidden;
   visibility: hidden;
