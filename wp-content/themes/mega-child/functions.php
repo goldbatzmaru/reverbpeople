@@ -78,3 +78,6 @@ if( function_exists('acf_add_options_page') ) {
 		'redirect'		=> false
 	));
 }
+
+// Remove anchor for Gravity Forms submissions
+add_filter( 'gform_confirmation_anchor', '__return_false' );
