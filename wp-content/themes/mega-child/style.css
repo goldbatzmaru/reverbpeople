@@ -384,8 +384,7 @@ p.member-role {
 
 /* SERVICES
 ================================= */
-#cta_contacts {
-}
+
 .cta_contact {
 	width: 50%;
 	display: inline-block;
@@ -415,8 +414,6 @@ p.member-role {
 	margin: 30px 0;
 }
 
-#cta_resources {
-}
 .cta_resource {
 	width: 25%;
 	display: inline-block;
@@ -451,6 +448,31 @@ p.member-role {
 	border: 2px solid #00b2bf !important;
 	color: #00b2bf;
 	margin: 30px 0;
+}
+
+#cta_contacts > .contacts.wrapper,
+#cta_resources > .resources.wrapper {
+	display: block;
+  min-height: 100px;
+  margin-top: 15px;
+}
+
+@media (max-width: 420px){
+	#cta_resources > .resources.wrapper > .cta_resource {
+		width: 45%;
+	}
+
+	#cta_resources > .resources.wrapper > .cta_resource:nth-child(-n+2){
+		margin-bottom: 25px;
+	}
+
+}
+
+
+#cta_contacts .button-wrapper, #cta_resources .button-wrapper {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
 }
 
 .cta-button {
@@ -596,11 +618,14 @@ h5.testimonial-header {
 	font-weight: bold;
 }
 #clients_companies {
-	padding-left: 80px;
+	padding-left: 10%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
-#clients_companies img {
+.page-entry-content #clients_companies img {
 	width: 200px;
-	height: 200px;
+	height: 200px !important;
 	margin: 0 20px;
 }
 
@@ -1064,11 +1089,11 @@ background-color: white !important;
 }
 
 
-/* #Clearing
+/* Clearing
 ================================================== */
 
 /* Self Clearing Goodness */
-.container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+.container:after { content: "020"; display: block; height: 0; clear: both; visibility: hidden; }
 
 /* Use clearfix class on parent to clear nested columns,
 or wrap each row of columns in a <div class="row"> */
@@ -1076,7 +1101,7 @@ or wrap each row of columns in a <div class="row"> */
 .clearfix:after,
 .row:before,
 .row:after {
-  content: '\0020';
+  content: '020';
   display: block;
   overflow: hidden;
   visibility: hidden;
