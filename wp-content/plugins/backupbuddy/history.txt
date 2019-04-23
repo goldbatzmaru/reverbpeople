@@ -1967,3 +1967,15 @@
 	Enhancement: Add Sync Verb for Editing Remote Destinations.
 	Enhancement: Edit Sync Verb for start backup to allow option to send to Remote Destinations.
 	Bug Fix:     Resolved memory issue when sending large backups to Stash/S3 Destinations.
+8.3.6.0 - 2019-02-20 - Chris Jean, Joshua Benham
+	Enhancement: Improvements to Stash v2 and v3 that can dramatically improve performance of sending files.
+8.3.6.1 - 2019-02-21 - Lew Ayotte
+	Enhancement: Updating http to https
+8.3.7.0 - 2019-03-08 - Chris Jean
+	Bug Fix: Fixed Stash remote destinations sometimes not removing older uploads per the destination settings.
+8.3.8.0 - 2019-03-12 - Lew Ayotte
+	Enhancement: Added nextRun to getSchedules API.
+8.3.9.0 - 2019-03-12 - Chris Jean
+	Bug Fix: Fixed importbuddy bug that prevents all files in Stash from showing properly.
+8.3.10.0 - 2019-03-22 - Lew Ayotte
+	Enhancement: Adding filters for LiquidWeb UI improvements (Managed Press)

@@ -12,8 +12,10 @@ wp-content/wp-cache-config.php
 wp-content/plugins/hello.php
 
 /.htaccess
+/.htpasswd
 /license.txt
 /readme.html
 /sitemap.xml
 /sitemap.xml.gz
+/php.ini
 .DS_Store

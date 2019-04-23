@@ -79,4 +79,9 @@ if( function_exists('acf_add_options_page') ) {
 	));
 }
 
+<<<<<<< HEAD
 add_filter( 'gform_confirmation_anchor', '__return_false' );
+=======
+// Remove anchor for Gravity Forms submissions
+add_filter( 'gform_confirmation_anchor', '__return_false' );
+>>>>>>> 75d83c45bfc8c2b66afcc152daaaa6f5aba8f589

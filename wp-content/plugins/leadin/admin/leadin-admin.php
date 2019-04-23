@@ -17,8 +17,11 @@ if ( ! defined( 'LEADIN_ADMIN_PATH' ) ) {
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
 function action_required_notice(){
+  $current_screen = get_current_screen();
+  if ( $current_screen->parent_base !== 'leadin' ) {
     $leadin_icon = LEADIN_PATH . '/images/sprocket.svg';
     echo '<div class="notice notice-warning is-dismissible"><p><img src="' . $leadin_icon . '" height="16" style="margin-bottom: -3px" /> The HubSpot plugin isn’t connected right now. To use HubSpot tools on your WordPress site, <a href="admin.php?page=leadin">connect the plugin now</a>.</p></div>';
+  }
 }
 
 // =============================================
@@ -49,8 +52,8 @@ class WPLeadInAdmin {
 
     add_action( 'admin_menu', array( &$this, 'leadin_add_menu_items' ) );
     add_action( 'admin_print_scripts', array( &$this, 'add_leadin_admin_scripts' ) );
-    add_action( 'admin_enqueue_scripts', array( &$this, 'add_leadin_global_admin_style' ) );
     add_filter( 'plugin_action_links_' . 'leadin/leadin.php', array( $this, 'leadin_plugin_settings_link' ) );
+    add_action( 'admin_notices', array( &$this, 'leadin_add_iframe' ) );
 
     if ($affiliate = $this->get_affiliate_code()) {
         add_option( 'hubspot_affiliate_code', $affiliate );
@@ -128,8 +131,8 @@ class WPLeadInAdmin {
 
     add_menu_page( 'HubSpot', 'HubSpot'.$notificationIcon, $capability, 'leadin', array( $this, 'leadin_build_app' ), 'dashicons-sprocket', '25.100713' );
 
-    $oAuthMode = get_option('leadin_oauth_mode');
-    if ($oAuthMode && $oAuthMode == '1') {
+    $portal_id = get_option('leadin_portalId');
+    if ( !empty( $portal_id ) ) {
       add_submenu_page('leadin', 'Forms', 'Forms', 'activate_plugins', 'leadin_forms', array($this, 'leadin_build_app'));
       add_submenu_page('leadin', 'Settings', 'Settings', 'activate_plugins', 'leadin_settings', array($this, 'leadin_build_app'));
       remove_submenu_page('leadin','leadin');
@@ -146,8 +149,8 @@ class WPLeadInAdmin {
    * @return  array
    */
   function leadin_plugin_settings_link( $links ) {
-    $oAuthMode = get_option('leadin_oauth_mode');
-    if ($oAuthMode && $oAuthMode == '1') {
+    $portal_id = get_option('leadin_portalId');
+    if ( !empty( $portal_id ) ) {
       $page = "leadin_settings";
     } else {
       $page = "leadin";
@@ -161,18 +164,16 @@ class WPLeadInAdmin {
   /**
    * Creates leadin app
    */
-
   function leadin_build_app() {
-      global $wp_version;
-
-    echo '<div id="leadin" class="wrap ' . ( $wp_version < 3.8 && ! is_plugin_active( 'mp6/mp6.php' ) ? 'pre-mp6' : '' ) . '"></div>';
-
     wp_enqueue_style( 'leadin-bridge-css' );
-    wp_enqueue_script( 'leadin-bridge-app' );
-
   }
 
-  function update_option_leadin_options_callback( $old_value, $new_value ) {
+  /**
+   * Add iframe
+   */
+  function leadin_add_iframe() {
+    global $wp_version;
+    echo '<div id="leadin" class="' . ( $wp_version < 3.8 && ! is_plugin_active( 'mp6/mp6.php' ) ? 'pre-mp6' : '' ) . '"></div>';
   }
 
   // =============================================
@@ -198,7 +199,6 @@ class WPLeadInAdmin {
       'portalId'              => get_option( 'leadin_portalId' ),
       'affiliateCode'         => get_option( 'hubspot_affiliate_code' ),
       'acquisitionAttributionParams' => $this->get_acquisition_attribution_option(),
-      'slumberMode'           => get_option( 'leadin_slumber_mode' ),
       'env'                   => constant( 'LEADIN_ENV' ),
       'user'                  => $this->leadin_get_user_for_tracking(),
       'allRoles'              => $wp_roles->get_names(),
@@ -213,7 +213,6 @@ class WPLeadInAdmin {
       'locale'                => get_locale(),
       'timezone'              => get_option( 'gmt_offset' ),
       'timezoneString'        => get_option( 'timezone_string' ), // If not set by the user manually it will be an empty string
-      'oAuthMode'             => get_option( 'leadin_oauth_mode' ),
       'connectionTimeInMs'    => get_option( 'leadin_connectionTimeInMs' ),
       'plugins'               => get_plugins(),
       'phpVersion'            => phpversion(),
@@ -222,19 +221,16 @@ class WPLeadInAdmin {
       'wpUserEmail'       		=> $wpUser->user_email,
     );
 
-    if ( ( $pagenow == 'admin.php' && isset( $_GET['page'] ) && strstr( $_GET['page'], 'leadin' ) ) ) { // WPCS: CSRF ok.
-      wp_register_script( 'leadin-head-js', leadin_get_resource_url( '/bundle/head/head.js' ), false, false, false );
-      wp_localize_script( 'leadin-head-js', 'leadin_config', $leadin_config );
-      wp_enqueue_script( 'leadin-head-js' );
+    wp_register_script( 'leadin-head-js', leadin_get_resource_url( '/bundle/head/head.js' ), false, false, false );
+    wp_localize_script( 'leadin-head-js', 'leadin_config', $leadin_config );
+    wp_enqueue_script( 'leadin-head-js' );
 
-      wp_register_script( 'leadin-bridge-app', leadin_get_resource_url( '/bundle/app.js' ), array( 'backbone' ), false, true );
-      wp_register_style( 'leadin-bridge-css', leadin_get_resource_url( '/bundle/app.css' ) );
-    }
-  }
+    wp_register_script( 'leadin-bridge-app', leadin_get_resource_url( '/bundle/app.js' ), array( 'backbone' ), false, true );
+    wp_register_style( 'leadin-bridge-css', leadin_get_resource_url( '/bundle/app.css' ) );
+    wp_register_script( 'leadin-js', LEADIN_PATH.'/assets/leadin.js', false, false, true );
 
-  function add_leadin_global_admin_style() {
-    wp_register_style( 'leadin-css', LEADIN_PATH.'/assets/leadin.css' );
-    wp_enqueue_style( 'leadin-css' );
+    wp_enqueue_script( 'leadin-bridge-app' );
+    wp_enqueue_script( 'leadin-js' );
   }
 
   // =============================================

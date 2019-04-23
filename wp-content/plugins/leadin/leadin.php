@@ -3,7 +3,7 @@
 Plugin Name: HubSpot All-In-One Marketing - Forms, Popups, Live Chat
 Plugin URI: http://www.hubspot.com/integrations/wordpress
 Description: HubSpot’s official WordPress plugin allows you to add forms, popups, and live chat to your website and integrate with the best WordPress CRM.
-Version: 7.0.6
+Version: 7.2.2
 Author: HubSpot
 Author URI: http://www.hubspot.com
 License: GPL2
@@ -33,7 +33,7 @@ if ( ! defined( 'LEADIN_DB_VERSION' ) ) {
 }
 
 if ( ! defined( 'LEADIN_PLUGIN_VERSION' ) ) {
-  define( 'LEADIN_PLUGIN_VERSION', '7.0.6' );
+  define( 'LEADIN_PLUGIN_VERSION', '7.2.2' );
 }
 
 if ( ! defined( 'LEADIN_SOURCE' ) ) {
@@ -62,7 +62,6 @@ if ( file_exists( LEADIN_PLUGIN_DIR . '/inc/leadin-constants.php' ) ) {
 require_once LEADIN_PLUGIN_DIR . '/inc/leadin-functions.php';
 require_once LEADIN_PLUGIN_DIR . '/inc/leadin-registration.php';
 require_once LEADIN_PLUGIN_DIR . '/inc/leadin-disconnect.php';
-require_once LEADIN_PLUGIN_DIR . '/inc/leadin-oauth-refresh.php';
 require_once LEADIN_PLUGIN_DIR . '/admin/leadin-admin.php';
 
 require_once LEADIN_PLUGIN_DIR . '/inc/class-leadin.php';
@@ -212,15 +211,26 @@ function addHubspotShortcode($attributes) {
     $portalId = $parsedAttributes['portal'];
     $id = $parsedAttributes['id'];
 
+    if (LEADIN_ENV != 'prod') {
+      $formsUrlSuffix = 'qa';
+      $formsPayloadQA = 'env: "qa",';
+    } else {
+      $formsUrlSuffix = '';
+      $formsPayloadQA = '';
+    }
+
+    $formsUrl = "//js.hsforms$formsUrlSuffix.net/forms/v2.js";
+
     switch ($parsedAttributes['type']) {
         case 'form':
             return '
-                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+                <script charset="utf-8" type="text/javascript" src="'.$formsUrl.'"></script>
                 <script>
                   hbspt.forms.create({
                     portalId: '. $portalId . ',
                     formId: "' . $id . '",
-                    shortcode: "wp"
+                    shortcode: "wp",
+                    ' . $formsPayloadQA . '
                   });
                 </script>
             ';
