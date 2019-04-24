@@ -381,6 +381,21 @@ p.member-role {
 	border-bottom: 1px solid #000;
 }
 
+/* CONTACT PAGE
+================================= */
+#contact-form input {
+	width: 100%;
+}
+
+#contact-form.embed-map-active, 
+#contact-embed-iframe {
+	max-width: 47%;
+	display: inline-block;
+}
+
+#contact-embed-iframe {
+	float: right;
+}
 
 /* SERVICES
 ================================= */
