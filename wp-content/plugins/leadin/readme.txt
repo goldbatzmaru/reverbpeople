@@ -1,9 +1,12 @@
 === HubSpot All-In-One Marketing - Forms, Popups, Live Chat ===
 Contributors: HubSpotDev, leadin
+License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl.html
 Tags: forms, popup, live chat, contact form, crm, newsletter, marketing, lead generation, hubspot, mailchimp, constant contact
-Requires at least: 3.7
-Tested up to: 5.1
-Stable tag: 7.2.2
+Requires at least: 4.0
+Tested up to: 5.2
+Requires PHP: 5.6
+Stable tag: 7.4.1
 
 HubSpot All-In-One Marketing, is a free all-in-one marketing plugin that allows you to easily use HubSpot forms, popups, and live chat on your WordPress site. If you’re already a HubSpot user, the plugin lets you connect your HubSpot account to your website without any code.
 
@@ -161,65 +164,18 @@ Please <a href="https://community.hubspot.com?utm_source=wordpress-plugin-listin
 
 == Changelog ==
 
-- Current version: 7.2.2
-- Current version release: 2019-04-08
+- Current version: 7.4.1
+- Current version release: 2019-05-07
 
-= 7.2.2 (2019.04.09)
-- Fix for whitespace bug
+= 7.4.1 (2019.05.07) =
+- Implement faster navigation
+- Fix signup url
+- Use i18n on PHP
 
-= 7.2.1 (2019.04.08)
-- Added link to Chatflows
-
-= 7.2.0 (2019.04.03) =
-- Add background iframe
-
-= 7.1.1 (2019.04.03) =
-- Remove OAuth step from signup
-- Fix assets in listing
-
-= 7.1.0 (2019.04.01) =
-- Remove slumber/oauth mode
-- Fix icon in top menu
-- Add help widget
-- Update message on connection error
-- April fool prank
-
-= 7.0.7 (2019.03.25) =
-- Add helpers for acceptance tests
-- Remove dialog on settings page
-- Load forms script from right environment
-- Test on PHP 5.6
-- Design fixes on the intro page
-
-= 7.0.6 (2019.03.08) =
-- Add debug helpers
-
-= 7.0.5 (2019.03.05) =
-- Update description to explain how plugin provides WordPress CRM
-- Fix connection to wrong portal id
-- Add pop-up on login page
-- Add intro screen for un-logged users
-- Update HubSpot forms script
-- Disable "Create form" when user has no permissions
-- Skip authorization token verification
-- Test with most popular plugins
-
-= 7.0.4 (2019.02.19) =
-- Show welcome dialog after connection
-- Remove extra navigation in connection flow
-- Add pre-fill to signup form
-- Add plugin version to HTML comment
-- Fix enqueue style error
-
-= 7.0.3 (2019.02.12) =
-- Update HubSpot logos
-
-= 7.0.2 (2019.01.22) =
-- Plugin readme update
-- Fix wrong settings link
-
-= 7.0.1 (2018.10.12) =
-- Send page analytics data into HubSpot
+= 7.4.0 (2019.04.30) =
+- Improve performances
+- Remove dependencies from HubSpot's CDN
+- Update license
 
 = 7.0.0 (2018.10.03) =
 - Add deeper integration with HubSpot. Starts a new release of a new forms integration within WordPress. Released progressively for some users.
