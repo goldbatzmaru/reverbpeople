@@ -162,6 +162,12 @@ ul.flex-container.darkgray li {
 	position: relative;
 }
 
+@media (max-width: 320px){
+	.site-logo img {
+		max-height: 115px;
+	}
+}
+
 /* CONTENT
 ================================= */
 
@@ -389,13 +395,46 @@ p.member-role {
 
 #contact-form.embed-map-active, 
 #contact-embed-iframe {
-	max-width: 47%;
+	width: 47%;
 	display: inline-block;
 }
 
 #contact-embed-iframe {
 	float: right;
 }
+
+#contact-embed-iframe .mobile-divider {
+  display: none;
+}
+
+#contact-embed-iframe .address-info {
+	font-size: 20px;
+  margin-top: 15px;
+}
+
+@media (max-width: 1000px) {
+	#contact-form.embed-map-active, 
+	#contact-embed-iframe {
+		width: 100%;
+		display: block;
+	}
+
+	#contact-embed-iframe {
+		float: none;
+	}
+
+	#contact-embed-iframe .mobile-divider {
+		display: block;
+		margin-bottom: 25px;
+	}
+}
+
+@media (max-width: 760px) {
+	#contact-embed-iframe > iframe {
+		max-height: 400px;
+	}
+}
+
 
 /* SERVICES
 ================================= */

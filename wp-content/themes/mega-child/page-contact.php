@@ -142,7 +142,10 @@ get_header();
 							<?php endif;?>
 							<?php if($addressInfoEnabled):?>
 							  <div id="contact-embed-iframe">
-								<?php echo $embedCode; ?>
+								<hr class="mobile-divider" />
+								<?php if($embedCode):?>
+								  <?php echo $embedCode; ?>
+								<?php endif;?>
 								<?php if($addressText):?>
 								  <div class="address-info">
 									<div class="line-one"><?php echo $addressText['line_one']?></div>
