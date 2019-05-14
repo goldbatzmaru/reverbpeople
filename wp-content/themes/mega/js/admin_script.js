@@ -109,7 +109,7 @@ jQuery(document).ready(function(){
 	jQuery(".font_selector").change(function() {
 		var font_name = jQuery(this).find('option:selected').text();
 		jQuery('<link/>', {
-			href: 'http://fonts.googleapis.com/css?family=' + encodeURI(font_name),
+			href: 'https://fonts.googleapis.com/css?family=' + encodeURI(font_name),
 			rel: 'stylesheet',
 			type: 'text/css'
 		}).appendTo('head');

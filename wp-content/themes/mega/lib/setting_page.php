@@ -136,7 +136,7 @@
 	$unique_font_option = array_unique($font_option);
 	foreach($unique_font_option as $each_font){
 		if($key = array_key_exists($each_font,$wope_font_list)){
-			wp_register_style( 'wope-gfont-'.$each_font,'http://fonts.googleapis.com/css?family='.$wope_font_list[$each_font][1]);
+			wp_register_style( 'wope-gfont-'.$each_font,'https://fonts.googleapis.com/css?family='.$wope_font_list[$each_font][1]);
 			wp_enqueue_style('wope-gfont-'.$each_font);
 		}
 	}

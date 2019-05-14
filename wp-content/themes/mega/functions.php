@@ -113,7 +113,7 @@ function wope_load_style_frontend(){
 	
 	foreach($wope_unique_font_option as $wope_each_font){
 		if($key = array_key_exists($wope_each_font,$wope_font_list)){
-			wp_register_style( 'wope-gfont-'. str_replace(' ','-',$wope_each_font),'http://fonts.googleapis.com/css?family='.$wope_font_list[$wope_each_font][1]);
+			wp_register_style( 'wope-gfont-'. str_replace(' ','-',$wope_each_font),'https://fonts.googleapis.com/css?family='.$wope_font_list[$wope_each_font][1]);
 			wp_enqueue_style('wope-gfont-'.str_replace(' ','-',$wope_each_font));
 		}
 	}
