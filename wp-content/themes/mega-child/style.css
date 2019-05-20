@@ -199,7 +199,7 @@ ul.flex-container.darkgray li {
 	width: 80%;
 	margin: 0 auto;
 	border-top: 1px dotted #00b2bf;
-	padding-botto: 30px;
+	padding-bottom: 30px;
 	border-bottom: 1px dotted #00b2bf;
 }
 .home_resource {
@@ -658,6 +658,7 @@ h5.testimonial-header {
 	border-bottom: 1px solid #00b2bf;
 	padding: 10px 0px;
 	margin: 10px 0px;
+	min-height: 125px;
 }
 #clients_testimonials img {
 	width: 100px;
@@ -677,6 +678,7 @@ h5.testimonial-header {
 	flex-direction: row;
 	flex-wrap: wrap;
 }
+
 .page-entry-content #clients_companies img {
 	width: 200px;
 	height: 200px !important;
@@ -1147,11 +1149,7 @@ background-color: white !important;
 ================================================== */
 
 /* Self Clearing Goodness */
-<<<<<<< HEAD
 .container:after { content: "020"; display: block; height: 0; clear: both; visibility: hidden; }
-=======
-.container:after { content: " 020"; display: block; height: 0; clear: both; visibility: hidden; }
->>>>>>> 75d83c45bfc8c2b66afcc152daaaa6f5aba8f589
 
 /* Use clearfix class on parent to clear nested columns,
 or wrap each row of columns in a <div class="row"> */
@@ -1159,11 +1157,7 @@ or wrap each row of columns in a <div class="row"> */
 .clearfix:after,
 .row:before,
 .row:after {
-<<<<<<< HEAD
   content: '020';
-=======
-  content: ' 020';
->>>>>>> 75d83c45bfc8c2b66afcc152daaaa6f5aba8f589
   display: block;
   overflow: hidden;
   visibility: hidden;

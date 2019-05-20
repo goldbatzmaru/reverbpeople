@@ -2,9 +2,19 @@
 
 final class BackupBuddy_Stash_API {
 	public static function send_file( $username, $token, $file ) {
+		if ( defined( 'BACKUPBUDDY_STASH_USE_LEGACY_UPLOAD' ) && BACKUPBUDDY_STASH_USE_LEGACY_UPLOAD ) {
+			return false;
+		}
+
 		require_once( dirname( __FILE__ ) . '/stash-util.php' );
 
 		return BackupBuddy_Stash_Util::send_file( $username, $token, $file );
+	}
+
+	public static function get_upload_credentials( $username, $token, $file = false, $aws_api_version = false ) {
+		require_once( dirname( __FILE__ ) . '/stash-util.php' );
+
+		return BackupBuddy_Stash_Util::get_upload_credentials( $username, $token, $file, $aws_api_version );
 	}
 
 	public static function delete_files( $username, $token, $files ) {

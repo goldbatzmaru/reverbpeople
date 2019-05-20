@@ -7475,3 +7475,10 @@ PHP    compiled with module API=20131226
 These options need to match
  in Unknown on line 0
 [15-Apr-2019 12:24:13 America/Chicago] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/php70/lib/php/extensions/no-debug-non-zts-20151012/oauth.so' - /opt/php70/lib/php/extensions/no-debug-non-zts-20151012/oauth.so: undefined symbol: zend_sort in Unknown on line 0
+[20-May-2019 20:18:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_field() in /home2/uniqufn3/public_html/reverbpeople/wp-content/themes/mega-child/page-contact.php:69
+Stack trace:
+#0 /home2/uniqufn3/public_html/reverbpeople/wp-includes/template-loader.php(78): include()
+#1 /home2/uniqufn3/public_html/reverbpeople/wp-blog-header.php(19): require_once('/home2/uniqufn3...')
+#2 /home2/uniqufn3/public_html/reverbpeople/index.php(17): require('/home2/uniqufn3...')
+#3 {main}
+  thrown in /home2/uniqufn3/public_html/reverbpeople/wp-content/themes/mega-child/page-contact.php on line 69
