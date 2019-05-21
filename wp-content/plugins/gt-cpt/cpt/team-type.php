@@ -61,25 +61,27 @@ function team_help_text( $contextual_help, $screen_id, $screen ) {
 }
 
 function team_image_box() {
- 	// Remove the orginal "Set Featured Image" Metabox
-	remove_meta_box( 'postimagediv', 'team', 'side' );
- 	// Add it again with another title
-	add_meta_box( 'postimagediv', __( 'Team Member Image', 'cabana' ), 'post_thumbnail_meta_box', 'team', 'side', 'low' );
+     // Remove the orginal "Set Featured Image" Metabox
+    remove_meta_box( 'postimagediv', 'team', 'side' );
+     // Add it again with another title
+    add_meta_box( 'postimagediv', __( 'Team Member Image', 'cabana' ), 'post_thumbnail_meta_box', 'team', 'side', 'low' );
 }
 add_action( 'do_meta_boxes', 'team_image_box' );
 
 add_filter( 'manage_edit-team_columns', 'team_edit_columns' );
 
 function team_edit_columns( $columns ) {
-        $columns = array(
-            'cb' => '<input type=\'checkbox\' />',
-            'title' => 'Team Member Name',
-            'member_email' => 'Member Email',
-            'member_description' => 'Bio',
-        );  
+    $checkboxEscaped = addslashes("<input type='checkbox' />");
+    $columns = array(
+        'cb' => $checkboxEscaped,
+        'title' => 'Team Member Name',
+        'member_email' => 'Member Email',
+        'member_description' => 'Bio',
+    );  
 
-        return $columns;
+    return $columns;
 }
+
 
 add_action( 'manage_posts_custom_column',  'team_custom_columns' ); 
 
@@ -113,229 +115,238 @@ function team_save_order() {
 add_action( 'wp_ajax_post_sort', 'team_save_order' );
 
 /*-----------------------------------------------------------------------------------*/
-/*	Define Metabox Fields
+/*    Define Metabox Fields
 /*-----------------------------------------------------------------------------------*/
 
 $prefix = 'gt_';
  
 $meta_box_team = array(
-	'id' => 'team_member',
+    'id' => 'team_member',
     'title' => __( 'Team Member Details', 'cabana' ),
     'page' => 'team',
     'context' => 'normal',
     'priority' => 'high',
     'fields' => array(
-    	array(
-    		'name' =>  __( 'Member Role', 'cabana' ),
-    	    'desc' => __( 'Enter a role for the Team Member <br />(ie; Creative Director)', 'cabana' ),
-    	    'id' => $prefix . 'member_role',
-    	    'type' => 'text',
-    	    'std' => ''
-    	),
-    	array(
-    		'name' =>  __( 'Read More Button Text', 'cabana' ),
-    	    'desc' => __( 'Enter text for your read more button <br />(ie; View full profile)', 'cabana' ),
-    	    'id' => $prefix . 'member_readmore_button_text',
-    	    'type' => 'text',
-    	    'std' => ''
-    	),
         array(
-        	'name' =>  __( 'Member Email', 'cabana' ),
-            'desc' => __( 'Enter an email for the Team Member <br />(ie; marc@guuthemes.com)', 'cabana' ),
-            'id' => $prefix . 'member_email_address',
+            'name' =>  __( 'Member Role', 'cabana' ),
+            'desc' => __( 'Enter a role for the Team Member <br />(ie; Creative Director)', 'cabana' ),
+            'id' => $prefix . 'member_role',
             'type' => 'text',
             'std' => ''
         ),
         array(
-        	'name' =>  __( 'Email Button Text', 'cabana' ),
-            'desc' => __( 'Enter text for your email button <br />(ie; Contact Marc)', 'cabana' ),
-            'id' => $prefix . 'member_email_button_text',
+            'name' =>  __( 'Pronouns', 'cabana' ),
+            'desc' => __( 'Enter text for their pronouns <br />(ie; They/Them)', 'cabana' ),
+            'id' => $prefix . 'member_pronouns',
             'type' => 'text',
             'std' => ''
         ),
-        array(
-           'name' => __( 'Twitter', 'cabana' ),
-           'desc' => __( 'Enter your Twitter Profile URL <br />(ie; http://twitter.com/guuthemes)', 'cabana' ),
-           'id' => $prefix . 'member_twitter',
-           'type' => 'text',
-           'std' => ''
-        ),
-        array(
-           'name' => __( 'Facebook', 'cabana' ),
-           'desc' => __( 'Enter your Facebook Profile URL <br />(ie; http://facebook.com/guuthemes)', 'cabana' ),
-           'id' => $prefix . 'member_facebook',
-           'type' => 'text',
-           'std' => ''
-        ),
-        array(
-           'name' => __( 'Google Plus', 'cabana' ),
-           'desc' => __( 'Enter your Google + Profile URL <br />(ie; http://plus.google.com/+guuthemes)', 'cabana' ),
-           'id' => $prefix . 'member_googleplus',
-           'type' => 'text',
-           'std' => ''
-        ),
+        // array(
+        //     'name' =>  __( 'Read More Button Text', 'cabana' ),
+        //     'desc' => __( 'Enter text for your read more button <br />(ie; View full profile)', 'cabana' ),
+        //     'id' => $prefix . 'member_readmore_button_text',
+        //     'type' => 'text',
+        //     'std' => ''
+        // ),
+        // array(
+        //     'name' =>  __( 'Member Email', 'cabana' ),
+        //     'desc' => __( 'Enter an email for the Team Member <br />(ie; marc@guuthemes.com)', 'cabana' ),
+        //     'id' => $prefix . 'member_email_address',
+        //     'type' => 'text',
+        //     'std' => ''
+        // ),
+        // array(
+        //     'name' =>  __( 'Email Button Text', 'cabana' ),
+        //     'desc' => __( 'Enter text for your email button <br />(ie; Contact Marc)', 'cabana' ),
+        //     'id' => $prefix . 'member_email_button_text',
+        //     'type' => 'text',
+        //     'std' => ''
+        // ),
+        // array(
+        //    'name' => __( 'Twitter', 'cabana' ),
+        //    'desc' => __( 'Enter your Twitter Profile URL <br />(ie; http://twitter.com/guuthemes)', 'cabana' ),
+        //    'id' => $prefix . 'member_twitter',
+        //    'type' => 'text',
+        //    'std' => ''
+        // ),
+        // array(
+        //    'name' => __( 'Facebook', 'cabana' ),
+        //    'desc' => __( 'Enter your Facebook Profile URL <br />(ie; http://facebook.com/guuthemes)', 'cabana' ),
+        //    'id' => $prefix . 'member_facebook',
+        //    'type' => 'text',
+        //    'std' => ''
+        // ),
+        // array(
+        //    'name' => __( 'Google Plus', 'cabana' ),
+        //    'desc' => __( 'Enter your Google + Profile URL <br />(ie; http://plus.google.com/+guuthemes)', 'cabana' ),
+        //    'id' => $prefix . 'member_googleplus',
+        //    'type' => 'text',
+        //    'std' => ''
+        // ),
         array(
            'name' => __( 'Linkedin', 'cabana' ),
            'desc' => __( 'Enter your Linkedin Profile URL <br />(ie; http://linkedin.com/in/guuthemes)', 'cabana' ),
            'id' => $prefix . 'member_linkedin',
            'type' => 'text',
            'std' => ''
-        ),
-        array(
-           'name' => __( 'Pinterest', 'cabana' ),
-           'desc' => __( 'Enter your Pinterest Profile URL <br />(ie; http://pinterest.com/guuthemes)', 'cabana' ),
-           'id' => $prefix . 'member_pinterest',
-           'type' => 'text',
-           'std' => ''
-        ),
-        array(
-           'name' => __( 'Dribbble', 'cabana' ),
-           'desc' => __( 'Enter your Dribbble Profile URL <br />(ie; http://dribbble.com/guuthemes)', 'cabana' ),
-           'id' => $prefix . 'member_dribbble',
-           'type' => 'text',
-           'std' => ''
-        ),
-        array(
-           'name' => __( 'Flickr', 'cabana' ),
-           'desc' => __( 'Enter your Flickr Profile URL <br />(ie; http://flickr.com/photos/guuthemes)', 'cabana' ),
-           'id' => $prefix . 'member_flickr',
-           'type' => 'text',
-           'std' => ''
-        ),
-        array(
-           'name' => __( 'Vimeo', 'cabana' ),
-           'desc' => __( 'Enter your Vimeo Profile URL <br />(ie; http://vimeo.com/guuthemes)', 'cabana' ),
-           'id' => $prefix . 'member_vimeo',
-           'type' => 'text',
-           'std' => ''
-        ),
-        array(
-           'name' => __( 'YouTube', 'cabana' ),
-           'desc' => __( 'Enter your YouTube Profile URL <br />(ie; http://youtube.com/user/guuthemes)', 'cabana' ),
-           'id' => $prefix . 'member_youtube',
-           'type' => 'text',
-           'std' => ''
         )
+        // array(
+        //    'name' => __( 'Pinterest', 'cabana' ),
+        //    'desc' => __( 'Enter your Pinterest Profile URL <br />(ie; http://pinterest.com/guuthemes)', 'cabana' ),
+        //    'id' => $prefix . 'member_pinterest',
+        //    'type' => 'text',
+        //    'std' => ''
+        // ),
+        // array(
+        //    'name' => __( 'Dribbble', 'cabana' ),
+        //    'desc' => __( 'Enter your Dribbble Profile URL <br />(ie; http://dribbble.com/guuthemes)', 'cabana' ),
+        //    'id' => $prefix . 'member_dribbble',
+        //    'type' => 'text',
+        //    'std' => ''
+        // ),
+        // array(
+        //    'name' => __( 'Flickr', 'cabana' ),
+        //    'desc' => __( 'Enter your Flickr Profile URL <br />(ie; http://flickr.com/photos/guuthemes)', 'cabana' ),
+        //    'id' => $prefix . 'member_flickr',
+        //    'type' => 'text',
+        //    'std' => ''
+        // ),
+        // array(
+        //    'name' => __( 'Vimeo', 'cabana' ),
+        //    'desc' => __( 'Enter your Vimeo Profile URL <br />(ie; http://vimeo.com/guuthemes)', 'cabana' ),
+        //    'id' => $prefix . 'member_vimeo',
+        //    'type' => 'text',
+        //    'std' => ''
+        // ),
+        // array(
+        //    'name' => __( 'YouTube', 'cabana' ),
+        //    'desc' => __( 'Enter your YouTube Profile URL <br />(ie; http://youtube.com/user/guuthemes)', 'cabana' ),
+        //    'id' => $prefix . 'member_youtube',
+        //    'type' => 'text',
+        //    'std' => ''
+        // )
     )
 );
 
-$meta_box_team_overview = array(
-	'id' => 'gt-meta-box-team-overview',
-	'title' => __( 'Team Member Overview', 'cabana' ),
-	'page' => 'team',
-	'context' => 'normal',
-	'priority' => 'high',
-	'fields' => array(
-		array(
-			'name' => __( 'Skills List', 'cabana' ),
-			'desc' => __( 'Enter a comma separated list (ie; Illustration, Photography, Motion Graphics)', 'cabana' ),
-			'id' => $prefix . 'member_overview_skills_list',
-			'type' => 'text',
-			'std' => ''
-		),
-		array(
-			'name' => __( 'Equipment List', 'cabana' ),
-			'desc' => __( 'Enter a comma separated list (ie; MacBook Pro, iMac 27", Sony A7)', 'cabana' ),
-			'id' => $prefix . 'member_overview_equipment_list',
-			'type' => 'text',
-			'std' => ''
-		),
-		array(
-			'name' => __( 'Likes List', 'cabana' ),
-			'desc' => __( 'Enter a comma separated list (ie; Nice people, Movies, Hardworkers)', 'cabana' ),
-			'id' => $prefix . 'member_overview_likes_list',
-			'type' => 'text',
-			'std' => ''
-		),
-		array(
-			'name' => __( 'Dislikes List', 'cabana' ),
-			'desc' => __( 'Enter a comma separated list (ie; Rude People, Bad Weather, Celery)', 'cabana' ),
-			'id' => $prefix . 'member_overview_dislikes_list',
-			'type' => 'text',
-			'std' => ''
-		)
-	)
-	
-);
+// $meta_box_team_overview = array(
+//     'id' => 'gt-meta-box-team-overview',
+//     'title' => __( 'Team Member Overview', 'cabana' ),
+//     'page' => 'team',
+//     'context' => 'normal',
+//     'priority' => 'high',
+//     'fields' => array(
+//         array(
+//             'name' => __( 'Skills List', 'cabana' ),
+//             'desc' => __( 'Enter a comma separated list (ie; Illustration, Photography, Motion Graphics)', 'cabana' ),
+//             'id' => $prefix . 'member_overview_skills_list',
+//             'type' => 'text',
+//             'std' => ''
+//         ),
+//         array(
+//             'name' => __( 'Equipment List', 'cabana' ),
+//             'desc' => __( 'Enter a comma separated list (ie; MacBook Pro, iMac 27", Sony A7)', 'cabana' ),
+//             'id' => $prefix . 'member_overview_equipment_list',
+//             'type' => 'text',
+//             'std' => ''
+//         ),
+//         array(
+//             'name' => __( 'Likes List', 'cabana' ),
+//             'desc' => __( 'Enter a comma separated list (ie; Nice people, Movies, Hardworkers)', 'cabana' ),
+//             'id' => $prefix . 'member_overview_likes_list',
+//             'type' => 'text',
+//             'std' => ''
+//         ),
+//         array(
+//             'name' => __( 'Dislikes List', 'cabana' ),
+//             'desc' => __( 'Enter a comma separated list (ie; Rude People, Bad Weather, Celery)', 'cabana' ),
+//             'id' => $prefix . 'member_overview_dislikes_list',
+//             'type' => 'text',
+//             'std' => ''
+//         )
+//     )
+    
+// );
 
 add_action( 'admin_menu', 'gt_add_box_team' );
 
 /*-----------------------------------------------------------------------------------*/
-/*	Callback function to show fields in meta box
+/*    Callback function to show fields in meta box
 /*-----------------------------------------------------------------------------------*/
 
 function gt_show_box_team() {
     global $meta_box_team, $post;
-	
-	// Use nonce for verification
-	echo '<input type="hidden" name="gt_add_box_team_nonce" value="', wp_create_nonce( basename( __FILE__ ) ), '" />';
+    
+    // Use nonce for verification
+    echo '<input type="hidden" name="gt_add_box_team_nonce" value="', wp_create_nonce( basename( __FILE__ ) ), '" />';
 
-	echo '<table class="form-table">';
-		
-	foreach ( $meta_box_team['fields'] as $field ) {
-		// get current post meta data
-		$meta = get_post_meta( $post->ID, $field['id'], true );
-			
-			echo '<tr style="border-bottom:1px solid #eeeeee;">',
-				'<th style="width:25%; font-weight: normal;"><label for="', $field['id'], '"><strong>', $field['name'], '</strong><p style=" display:block; color:#666; margin:5px 0 0 0; line-height: 18px;">'. $field['desc'].'</p></label></th>',
-				'<td>';
-			echo '<input type="text" name="', $field['id'], '" id="', $field['id'], '" value="', $meta ? $meta : stripslashes(htmlspecialchars(( $field['std']), ENT_QUOTES)), '" size="30" style="width:75%; margin-right: 20px; float:left;" />';
-			echo '</td></tr>';
-		
-		}
-		
-		echo '</table>';
+    echo '<table class="form-table">';
+        
+    foreach ( $meta_box_team['fields'] as $field ) {
+        // get current post meta data
+        $meta = get_post_meta( $post->ID, $field['id'], true );
+            
+            echo '<tr style="border-bottom:1px solid #eeeeee;">',
+                '<th style="width:25%; font-weight: normal;"><label for="', $field['id'], '"><strong>', $field['name'], '</strong><p style=" display:block; color:#666; margin:5px 0 0 0; line-height: 18px;">'. $field['desc'].'</p></label></th>',
+                '<td>';
+            echo '<input type="text" name="', $field['id'], '" id="', $field['id'], '" value="', $meta ? $meta : stripslashes(htmlspecialchars(( $field['std']), ENT_QUOTES)), '" size="30" style="width:75%; margin-right: 20px; float:left;" />';
+            echo '</td></tr>';
+        
+        }
+        
+        echo '</table>';
 }
 
-function gt_show_box_team_overview() {
-    global $meta_box_team_overview, $post;
-	
-	// Use nonce for verification
-	echo '<input type="hidden" name="gt_add_box_team_nonce" value="', wp_create_nonce( basename( __FILE__ ) ), '" />';
+// function gt_show_box_team_overview() {
+//     global $meta_box_team_overview, $post;
+    
+//     // Use nonce for verification
+//     echo '<input type="hidden" name="gt_add_box_team_nonce" value="', wp_create_nonce( basename( __FILE__ ) ), '" />';
 
-	echo '<table class="form-table">';
-		
-	foreach ( $meta_box_team_overview['fields'] as $field ) {
-		// get current post meta data
-		$meta = get_post_meta( $post->ID, $field['id'], true );
-			
-			echo '<tr style="border-bottom:1px solid #eeeeee;">',
-				'<th style="width:25%; font-weight: normal;"><label for="', $field['id'], '"><strong>', $field['name'], '</strong><p style=" display:block; color:#666; margin:5px 0 0 0; line-height: 18px;">'. $field['desc'].'</p></label></th>',
-				'<td>';
-			echo '<input type="text" name="', $field['id'], '" id="', $field['id'], '" value="', $meta ? $meta : stripslashes(htmlspecialchars(( $field['std']), ENT_QUOTES)), '" size="30" style="width:75%; margin-right: 20px; float:left;" />';
-			echo '</td></tr>';
-		
-		}
-		
-		echo '</table>';
-}
+//     echo '<table class="form-table">';
+        
+//     foreach ( $meta_box_team_overview['fields'] as $field ) {
+//         // get current post meta data
+//         $meta = get_post_meta( $post->ID, $field['id'], true );
+            
+//             echo '<tr style="border-bottom:1px solid #eeeeee;">',
+//                 '<th style="width:25%; font-weight: normal;"><label for="', $field['id'], '"><strong>', $field['name'], '</strong><p style=" display:block; color:#666; margin:5px 0 0 0; line-height: 18px;">'. $field['desc'].'</p></label></th>',
+//                 '<td>';
+//             echo '<input type="text" name="', $field['id'], '" id="', $field['id'], '" value="', $meta ? $meta : stripslashes(htmlspecialchars(( $field['std']), ENT_QUOTES)), '" size="30" style="width:75%; margin-right: 20px; float:left;" />';
+//             echo '</td></tr>';
+        
+//         }
+        
+//         echo '</table>';
+// }
 
 add_action( 'save_post', 'gt_save_data_team' );
 
 /*-----------------------------------------------------------------------------------*/
-/*	Add metabox to edit page
+/*    Add metabox to edit page
 /*-----------------------------------------------------------------------------------*/
  
 function gt_add_box_team() {
-	global $meta_box_team, $meta_box_team_overview;
-	
-	add_meta_box( $meta_box_team['id'], $meta_box_team['title'], 'gt_show_box_team', $meta_box_team['page'], $meta_box_team['context'], $meta_box_team['priority'] );
-	
-	add_meta_box( $meta_box_team_overview['id'], $meta_box_team_overview['title'], 'gt_show_box_team_overview', $meta_box_team_overview['page'], $meta_box_team_overview['context'], $meta_box_team_overview['priority'] );
-	
+    global $meta_box_team;
+    //$meta_box_team_overview removed
+    
+    add_meta_box( $meta_box_team['id'], $meta_box_team['title'], 'gt_show_box_team', $meta_box_team['page'], $meta_box_team['context'], $meta_box_team['priority'] );
+    
+    // add_meta_box( $meta_box_team_overview['id'], $meta_box_team_overview['title'], 'gt_show_box_team_overview', $meta_box_team_overview['page'], $meta_box_team_overview['context'], $meta_box_team_overview['priority'] );
+    
 }
 
 /*-----------------------------------------------------------------------------------*/
-/*	Save data when post is edited
+/*    Save data when post is edited
 /*-----------------------------------------------------------------------------------*/
 
 // Save data from meta box
 function gt_save_data_team( $post_id ) {
-    global $meta_box_team, $meta_box_team_overview;
+    global $meta_box_team;
+    //$meta_box_team_overview removed
 
     // verify nonce
     if ( !isset( $_POST['gt_add_box_team_nonce'] ) || !wp_verify_nonce( $_POST['gt_add_box_team_nonce'], basename( __FILE__ ) ) ) {
-    	return $post_id;
+        return $post_id;
     }
 
     // check autosave
@@ -363,16 +374,16 @@ function gt_save_data_team( $post_id ) {
         }
     }
     
-    foreach ( $meta_box_team_overview['fields'] as $field ) {
-		$old = get_post_meta( $post_id, $field['id'], true );
-		$new = $_POST[$field['id']];
+    // foreach ( $meta_box_team_overview['fields'] as $field ) {
+    //     $old = get_post_meta( $post_id, $field['id'], true );
+    //     $new = $_POST[$field['id']];
 
-		if ( $new && $new != $old ) {
-			update_post_meta( $post_id, $field['id'], stripslashes(htmlspecialchars( $new )) );
-		} elseif ( '' == $new && $old ) {
-			delete_post_meta( $post_id, $field['id'], $old );
-		}
-	}
+    //     if ( $new && $new != $old ) {
+    //         update_post_meta( $post_id, $field['id'], stripslashes(htmlspecialchars( $new )) );
+    //     } elseif ( '' == $new && $old ) {
+    //         delete_post_meta( $post_id, $field['id'], $old );
+    //     }
+    // }
     
 }
 
