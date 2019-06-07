@@ -267,8 +267,8 @@ get_header();
                 
                 <div class="team-jobs">
                 <h3>Open Jobs</h3>
-                <div class="bebop-jobs"></div>
-                <script id="bebop-embed-loader" async defer src="https://hire.withgoogle.com/s/embed/jobs.js?company=uniquelyhrcom"></script>
+                <div class="hire-jobs"></div>
+                <script id="hire-embed-loader" async defer src="https://hire.withgoogle.com/s/embed/hire-jobs.js?company=reverbpeoplecom"></script>
                 </div>
 
                         </div>
@@ -398,10 +398,10 @@ get_header();
             endif; ?>
                 </div><!-- end .team-section -->
                 
-                <div class="team-jobs">
+                <div class="hire-jobs">
                 <h3>Open Jobs</h3>
                 <div class="bebop-jobs"></div>
-                <script id="bebop-embed-loader" async defer src="https://hire.withgoogle.com/s/embed/jobs.js?company=uniquelyhrcom"></script>
+                <script id="bebop-embed-loader" async defer src="https://hire.withgoogle.com/s/embed/jobs.js?company=reverbpeoplecom"></script>
                 </div>
 
                             </div>
