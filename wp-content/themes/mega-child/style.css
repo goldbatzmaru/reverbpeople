@@ -317,7 +317,8 @@
      margin-bottom: 10px;
 }
  .member-pronouns {
-     font-size: 14px;
+     font-size: 13px;
+     font-style: italic;
      margin-left: 5px;
 }
  .team-jobs {
